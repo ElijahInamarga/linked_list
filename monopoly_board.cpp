@@ -226,23 +226,21 @@ public:
         delete temp;
     }
 
-    int search(T value) {
+    bool search(T value) {
         if(headNode == nullptr) {
             cout << "Can't search empty list" <<endl;
-            return 0;
+            return false;
         }
 
         Node<T>* currentNode = headNode;
-        int count = 1;
         do {
             if(currentNode->data.isEqual(value)) {
-                return count;
+                return true;
             }
             currentNode = currentNode->nextNode;
-            count++;
         } while(currentNode != headNode);
-        cout << "Property not found in list" << endl;
-        return 0;
+
+        return false;
     }
 
     void printList() {
@@ -305,20 +303,21 @@ int main() {
     list.insertAtTail(park);
     list.insertAtPosition(pool, 5);
     list.deleteAtPosition(5);
+    list.deleteAtHead();
     list.printList();
-    cout << list.search(hotel) <<endl;
+    list.search(house) ? cout << "true" << endl : cout << "false" << endl;
 
-    //Optional Basic Tasks
-    list.reverseCLList();
-    list.sortCLList();
-    list.printHeadNode();
-    list.printLastNode();
-    list.isListEmpty();
-    list.countNodes();
-    //Optional Advanced Tasks
-    list.convertCLList();
-    list.updateNodeValue();
-    list.displaySpecificColorNode();
-    list.mergeCLList();
+//    //Optional Basic Tasks
+//    list.reverseCLList();
+//    list.sortCLList();
+//    list.printHeadNode();
+//    list.printLastNode();
+//    list.isListEmpty();
+//    list.countNodes();
+//    //Optional Advanced Tasks
+//    list.convertCLList();
+//    list.updateNodeValue();
+//    list.displaySpecificColorNode();
+//    list.mergeCLList();
     return 0;
 }

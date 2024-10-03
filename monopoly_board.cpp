@@ -31,7 +31,7 @@ public:
     }
     void print() {
     /*Define Print Here*/
-    cout << "[Name: " + propertyName << ", Color: " + propertyColor << ", Value: " << value << ", Rent: " << rent << "] \n";
+    cout << "[Name: " + propertyName << ", Color: " + propertyColor << ", Value: " << value << ", Rent: " << rent << "]";
     }
 };
 
@@ -252,12 +252,17 @@ public:
         Node<T>* currentNode = headNode;
         do {
             currentNode->data.print();
+            if(currentNode != tailNode) {
+                cout << "-->" << endl;
+            } else {
+                cout << endl;
+            }
             currentNode = currentNode->nextNode;
         } while(currentNode != headNode);
     }
 
     //Optional Tasks
-    //Basic Funtions
+    //Basic Functions
     void reverseCLList() {
         cout << "Reverse List unwritten" << endl;
     }
@@ -270,6 +275,7 @@ public:
             return;
         }
         headNode->data.print();
+        cout << endl;
     }
     void printLastNode() {
         if(headNode == nullptr) {
@@ -277,6 +283,7 @@ public:
             return;
         }
         tailNode->data.print();
+        cout << endl;
     }
 
     bool isListEmpty() {
@@ -372,12 +379,11 @@ int main() {
     cout << "\nPrint last node of Monopoly Board list using printLastNode():" << endl;
     list.printLastNode();
     cout << "\nCheck if list is empty using isListEmpty():" << endl;
-    list.printList();
     list.isListEmpty() ? cout << "List is empty" << endl : cout << "List is not empty" << endl;
     cout << "\nFind out how many elements is in list using countNodes():" << endl;
     cout << list.countNodes() << endl;
     cout << "\n<====================================== OPTIONAL ADVANCED FUNCTIONS =====================================>" << endl;
-    cout << "\nUpdating data inside a certain node using updateNodeValue():" << endl;
+    cout << "\nUpdating nodes with data MonopolyBoard(\"House\") with new data MonopolyBoard(\"pool\") using updateNodeValue():" << endl;
     list.updateNodeValue(house, pool);
     list.printList();
     cout << "\n<========================================== UNWRITTEN FUNCTIONS =========================================>" << endl;
